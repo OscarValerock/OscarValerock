@@ -4,9 +4,9 @@
 🌍 Based in Switzerland 🇨🇭  
 
 ## About Me
-📊 Data professional, Power BI: M, data visualization and DAX. 
-🌱 Enjoy learning full-stack development. 
-🎯 Fun Fact: I make the best guacamole in Switzerland! 🏔️🥑  
+📊 Data professional, Power BI: M, data visualization and DAX.  
+🌱 Enjoy learning full-stack development.   
+🎯 Fun Fact: I make the best guacamole in Switzerland! 🏔️🥑    
 
 ## 📊 GitHub Stats
 
