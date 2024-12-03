@@ -1,16 +1,27 @@
-## Hi there 👋
+## Hi there 👋, I'm Oscar!
+
+🔍 **Exploring the world of [Power BI and Full Stack Development]**  
+🌍 Based in Switzerland 🇨🇭  
+
+## About Me
+📊 Data professional, Power BI: M, data visualization and DAX. 
+🌱 Enjoy learning full-stack development. 
+🎯 Fun Fact: I make the best guacamole in Switzerland! 🏔️🥑  
+
+## 📊 GitHub Stats
+
+![My GitHub Stats](https://github-readme-stats.vercel.app/api?username=OscarValerock&show_icons=true&theme=radical)
+![Top GitHub Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=OscarValerock&layout=compact&theme=radical)
+
+<!-- Replace "your-github-username" with your actual GitHub username -->
+
 
 <!--
-**OscarValerock/OscarValerock** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## 🛠️ Tech Stack & Tools
+- **Frontend:** HTML, CSS, JavaScript, React, Chakra UI  
+- **Backend & Data:** T-SQL, Deneb (Vega-Lite)  
+- **Tools:** VS Code, GitHub  
 
-Here are some ideas to get you started:
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+
 -->
