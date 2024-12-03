@@ -11,6 +11,7 @@
 ## 📊 GitHub Stats
 
 ![My GitHub Stats](https://github-readme-stats.vercel.app/api?username=OscarValerock&show_icons=true&theme=radical)
+
 ![Top GitHub Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=OscarValerock&layout=compact&theme=radical)
 
 <!-- Replace "your-github-username" with your actual GitHub username -->
