@@ -1,6 +1,6 @@
 ## Hi there 👋, I'm Oscar!
 
-🔍 **Exploring the world of **Power BI and Full Stack Development**  
+🔍 Exploring the world of **Power BI and Full Stack Development**  
 🌍 Based in Switzerland 🇨🇭  
 
 ## About Me
@@ -8,12 +8,8 @@
 🌱 Enjoy learning full-stack development.   
 🎯 Fun Fact: I make the best guacamole in Switzerland! 🏔️🥑    
 
-## 📊 GitHub Stats
-
-![My GitHub Stats](https://github-readme-stats.vercel.app/api?username=OscarValerock&show_icons=true&theme=radical)
-
-![Top GitHub Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=OscarValerock&layout=compact&theme=radical)
-
+## Visitor Count  
+![Visitor Count](https://komarev.com/ghpvc/?username=OscarValerock&color=green)
 <!-- Replace "your-github-username" with your actual GitHub username -->
 
 
