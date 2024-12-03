@@ -8,10 +8,6 @@
 🌱 Enjoy learning full-stack development.   
 🎯 Fun Fact: I make the best guacamole in Switzerland! 🏔️🥑    
 
-## Visitor Count  
-![Visitor Count](https://komarev.com/ghpvc/?username=OscarValerock&color=green)
-<!-- Replace "your-github-username" with your actual GitHub username -->
-
 
 <!--
 ## 🛠️ Tech Stack & Tools
