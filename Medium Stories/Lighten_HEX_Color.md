@@ -8,8 +8,6 @@ Have you ever needed to adjust a color in your flow—for example, to make it li
 3. Lighten each component by a specific factor.
 4. Convert them back into a new HEX string.
 
-> **Note**: Certain numeric conversion functions may not be available in some environments. We’ll use alternative expressions to handle conversions and ensure two-digit hex formatting.
-
 ---
 
 ## Steps to Calculate a Lighter Shade
