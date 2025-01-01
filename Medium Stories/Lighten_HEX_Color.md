@@ -111,8 +111,8 @@ Let’s say you want to lighten `#336699` by **20%** (i.e., a factor of **0.2**)
 
 ```mermaid
 flowchart TB
-    A((When Power Apps calls a flow (V2))) --> B[HEX]
-    A --> C[Factor]
+    A(When Power Apps calls a flow) --> B[HEX]
+    B --> C[Factor]
     C --> D[Red]
     C --> E[Green]
     C --> F[Blue]
@@ -125,17 +125,8 @@ flowchart TB
     J --> M[Lightened HEX]
     K --> M
     L --> M
-    M --> N((Respond to a Power App or flow))
+    M --> N(Respond to a Power App or flow)
 ```
-
-- **When Power Apps calls a flow (V2)**: Trigger to receive the HEX color.  
-- **HEX**: Variable storing the color.  
-- **Factor**: Float for how much to lighten.  
-- **Red / Green / Blue**: Decimal extracts from `HEX`.  
-- **Clamped Red / Green / Blue**: Variables storing each channel after applying the clamp/lighten formula.  
-- **Lightened Red / Green / Blue**: Compose actions converting them to two-digit hex.  
-- **Lightened HEX**: Final concatenation of the three two-character strings.  
-- **Respond to a Power App or flow**: Returns the resulting color (e.g., `#5C85AD`).
 
 ---
 
