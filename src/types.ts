@@ -25,3 +25,8 @@ export type SocialObjects = {
   active: boolean;
   linkTitle: string;
 }[];
+
+declare module 'remark-mermaid' {
+  const remarkMermaid: any;
+  export default remarkMermaid;
+}
