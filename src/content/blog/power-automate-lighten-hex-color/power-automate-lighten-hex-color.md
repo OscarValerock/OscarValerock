@@ -1,7 +1,7 @@
 ---
 title: Lighten a HEX Color in Power Automate & Logic Apps
 author: Oscar
-pubDatetime: 2024-03-19T00:00:00.000+00:00
+pubDatetime: 2025-01-19T09:00:00.000+01:00
 slug: power-automate-lighten-hex-color
 featured: false
 draft: false
