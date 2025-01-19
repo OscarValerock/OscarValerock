@@ -5,7 +5,7 @@ export const SITE: Site = {
   author: "Oscar Martinez",
   profile: "https://valerock.com/",
   desc: "A personal blog about programming, web development, and more.",
-  title: "🤘Valerock!",
+  title: "Oscar Martinez (🤘Valerock!)",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
