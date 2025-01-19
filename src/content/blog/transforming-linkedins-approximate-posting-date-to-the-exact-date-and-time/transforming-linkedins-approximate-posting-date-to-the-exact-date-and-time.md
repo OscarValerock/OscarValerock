@@ -8,7 +8,7 @@ draft: false
 tags:
   - LinkedIn
   - Python
-description: "Learn how to programmatically lighten HEX color codes in Power Automate and Logic Apps using simple mathematical calculations and color space conversion techniques."
+description: "Learn how Pinpoint the Exact Posting Date from LinkedIn Activity Numbers Even When You Only See ‘1w’ or ‘3d’"
 ---
 
 
