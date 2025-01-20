@@ -22,7 +22,7 @@ Examining a LinkedIn post’s HTML source shows a long numeric value tied to eac
 The Original Activity Number
 Let’s start with an example activity number you might find in the HTML code of a LinkedIn post:
 
-![0_cjM81VQlQrO3DBiw](https://hackmd.io/_uploads/S1hH-S5Dke.png)
+![Getting activity number](https://hackmd.io/_uploads/S1hH-S5Dke.png)
 
 
 `7198200780061900800`
