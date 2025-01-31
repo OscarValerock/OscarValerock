@@ -4,12 +4,12 @@ author: Oscar Martinez
 pubDatetime: 2025-01-31T00:00:00.000+01:00
 updatedDatetime: 2025-01-31T00:00:00.000+01:00
 slug: tech-and-entrepreneurship-diary
-featured: false
+featured: true
 draft: false
 tags:
-  - 
-  - 
-description: ""
+  - Personal
+  - Entrepreneurship
+description: "This is my tech diary, a place where I will drop my experiences navigating in the world of tech."
 ---
 
 # My Tech and Entrepreneurship Diary
