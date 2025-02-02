@@ -57,6 +57,9 @@ jobs:
       pages: write
       id-token: write
     steps:
+      - name: Wait for artifact
+        run: sleep 10
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
