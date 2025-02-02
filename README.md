@@ -1,4 +1,4 @@
-## Hi there 👋, I'm Oscar!!
+## Hi there 👋, I'm Oscar!
 
 🔍 Exploring the world of **Power BI and Full Stack Development**  
 🌍 Based in Switzerland 🇨🇭
