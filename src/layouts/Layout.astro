@@ -132,31 +132,21 @@ const structuredData = {
         />
       )
     }
-
-    {
-      googleAnalytics && (
-        <>
-
-          <script
-            type="text/partytown"
-            src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalytics}`}
-          />
-          <script type="text/partytown">
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-              dataLayer.push(...args);
-            }
-            gtag("js", new Date());
-            gtag("config", "${googleAnalytics}");
-          </script>
-        </>
-      )
-    }
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7SZV3DT85"></script>
+    <script defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B7SZV3DT85');
+    </script>
 
     <ViewTransitions />
 
     <script is:inline src="/toggle-theme.js" async></script>
   </head>
+
+
+
   <body>
     <slot />
   </body>
