@@ -33,20 +33,14 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Verify build output
-        run: |
-          if [ ! -d "${{ env.BUILD_PATH }}" ]; then
-            echo "Build directory not found!"
-            exit 1
-          fi
-          echo "Build directory contents:"
-          ls -la ${{ env.BUILD_PATH }}
+      - name: Debug Build Directory
+        run: ls -la dist  # Ensure build output exists
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: ${{ env.ARTIFACT_NAME }}
-          path: ${{ env.BUILD_PATH }}
+          name: github-pages  # Hardcoded for consistency
+          path: dist  # Ensure correct path
 
   deploy:
     needs: build
@@ -62,4 +56,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v3
         with:
-          artifact_name: ${{ env.ARTIFACT_NAME }}
+          artifact_name: github-pages  # Hardcoded
