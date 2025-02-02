@@ -43,3 +43,6 @@ jobs:
     steps:
       - name: Deploy
         uses: actions/deploy-pages@v3
+        with:
+          timeout: 1200000 # Increase the timeout if needed
+          error_count: 20  # Increase the error count threshold
