@@ -1,5 +1,5 @@
 ---
-title: Title
+title: My Tech and Entrepreneurship Diary
 author: Oscar Martinez
 pubDatetime: 2025-01-31T00:00:00.000+01:00
 updatedDatetime: 2025-01-31T00:00:00.000+01:00
