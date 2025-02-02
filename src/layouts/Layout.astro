@@ -4,6 +4,7 @@ import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+const googleAnalytics = import.meta.env.PUBLIC_GOOGLE_ANALYTICS;
 
 export interface Props {
   title?: string;
@@ -129,6 +130,26 @@ const structuredData = {
           name="google-site-verification"
           content={googleSiteVerification}
         />
+      )
+    }
+
+    {
+      googleAnalytics && (
+        <>
+
+          <script
+            type="text/partytown"
+            src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalytics}`}
+          />
+          <script type="text/partytown">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(...args);
+            }
+            gtag("js", new Date());
+            gtag("config", "${googleAnalytics}");
+          </script>
+        </>
       )
     }
 
