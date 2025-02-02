@@ -60,6 +60,6 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4 # use v4 of deploy-pages action because the previous one had a different artifact url which is deprecated
         with:
           artifact_name: ${{ env.ARTIFACT_NAME }}
