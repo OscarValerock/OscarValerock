@@ -1,8 +1,8 @@
 ---
-title: My Tech and Entrepreneurship Diary
+title: My tech and entrepreneurship diary
 author: Oscar Martinez
 pubDatetime: 2025-01-31T00:00:00.000+01:00
-updatedDatetime: 2025-01-31T00:00:00.000+01:00
+updatedDatetime: 2025-02-05T00:00:00.000+01:00
 slug: tech-and-entrepreneurship-diary
 featured: true
 draft: false
@@ -13,6 +13,18 @@ description: "This is my tech diary, a place where I will drop my experiences na
 ---
 
 # My Tech and Entrepreneurship Diary
+
+## 2025-02-05 - Freelancing
+
+GitHub deprecated an artifact I relied on for deploying this website, causing failures every time I pushed new content.
+
+After several unsuccessful attempts to fix the issue myself, I turned to Upwork, my go-to global talent pool. Within a few hours, the problem was resolved without requiring my direct involvement.
+
+Reflecting on this experience, I consider myself an experienced Upwork user, and here are some key lessons I've learned:
+
+1. **Be open to discovering hidden talent.** It is relatively easy to discover hidden talent. Every freelancer starts with zero reviews, which makes it tough to compete with experienced pros. This can be a great opportunity to find skilled newcomers who charge low rates to build their reputation, but it also comes with the risk of sour experiences. 
+2. **Avoid hiring unknown freelancers on open-ended hourly contracts.** Such agreements require a higher level of trust and commitment from both parties, which should be built over time through smaller fix price projects first.
+3. **Learn trust, with boundaries.** Giving freelancers access to systems, access tokens, or prototypes is sometimes necessary, but it should be done carefully. Use temporary credentials, limit permissions, and revoke access when the job is done. Trust grows through time, good communication, and reliability. Over time, a freelancer on the other side of the world can become just as dependable as someone in the same office. 
 
 ## 2025-01-31 - Partnership
 
