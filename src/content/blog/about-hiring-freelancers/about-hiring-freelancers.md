@@ -15,11 +15,11 @@ description: "Some thoughts about hire freelancers"
 
 # About hiring freelancers
 
-GitHub deprecated an artifact I relied on for deploying this website, causing failures every time I pushed new content.
+A routine content update became a deployment nightmare when GitHub deprecated a critical artifact on which I depended. Every push triggered failures, leaving my website stuck in limbo.
 
-After several unsuccessful attempts to fix the issue myself, I turned to Upwork, my go-to global talent pool. Within a few hours, the problem was resolved without requiring my direct involvement.
+After hours of troubleshooting with no success, I decided to take a step back and do what I’ve done many times before: turn to Upwork, my go-to platform for hiring freelancers. Within a few hours, an expert diagnosed and fixed the issue, all without me lifting a finger.
 
-Reflecting on this experience, and after spending over 7K in hiring freelancers, here are some key lessons I've learned when hiring them:
+This wasn’t my first time outsourcing a technical challenge, and after spending over $7K on freelance talent, I’ve learned a lot—sometimes the hard way—about hiring the right people. Here are my biggest takeaways:
 
 1. **Be open to discovering hidden talent.** It is relatively easy to discover hidden talent. Every freelancer starts with zero reviews, which makes it tough to compete with experienced pros. This can be a great opportunity to find skilled newcomers who charge low rates to build their reputation, but it also comes with the risk of sour experiences. 
 
