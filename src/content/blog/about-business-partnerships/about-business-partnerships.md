@@ -9,7 +9,7 @@ draft: false
 tags:
   - Diary
   - Entrepreneurship
-description: "About partnerships"
+description: "A personal reflection on the challenges of choosing a business partner, the evolution of BIBB, and a cofounder’s departure. While considering the future of BIBB, the immediate focus shifts to an upcoming presentation at the Association of Proposal Management Professionals."
 ---
 
 # About business partnerships
