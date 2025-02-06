@@ -1,5 +1,5 @@
 ---
-title: About freelancing
+title: About hiring freelancers
 author: Oscar
 pubDatetime: 2025-02-06T00:00:00.000+01:00
 updatedDatetime: 2025-02-06T00:00:00.000+01:00
@@ -9,7 +9,7 @@ draft: false
 tags:
   - Diary
   - Entrepreneurships
-description: "After spending over 7k on Upwork and Fiverr, here are some thoughts about hiring freelancers"
+description: "With over $7K spent on freelancers, key lessons emerge: discover hidden talent, avoid open-ended hourly contracts, and build trust with clear boundaries.s"
 ---
 
 
