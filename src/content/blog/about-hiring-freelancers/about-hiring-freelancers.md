@@ -9,7 +9,7 @@ draft: false
 tags:
   - Diary
   - Entrepreneurships
-description: "Some thoughts about hire freelancers"
+description: "After spending over 7k on Upwork and Fiverr, here are some thoughts about hiring freelancers"
 ---
 
 
