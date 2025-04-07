@@ -16,34 +16,41 @@ Data exfiltration is the act of moving sensitive data outside a trusted environm
 
 Power Query is powerful – it can connect to hundreds of data sources and, importantly, it can make web requests. By default, when Power Query runs in cloud services (e.g. Power BI dataflows or datamarts), it executes in the Power Query Online Mashup Engine, which operates in Microsoft’s cloud with unrestricted internet access [🔗 learn.microsoft.com](https://learn.microsoft.com/en-us/data-integration/gateway/data-connection-auditing#:~:text=data%20across%20hundreds%20of%20supported,accidental%20or%20malicious%20data%20exfiltration). In other words, if a user’s Power Query code is executed in the cloud, it can potentially send data to any external endpoint on the internet. This creates a potential security blind spot for organizations: a savvy user with data access can craft a query that exfiltrates (sends out) sensitive data, bypassing typical network protections.
 
-## Query evaluation
+## Mashup Query Engine
 
-> [name=OscarValerock] Needs further explanation of the engine.
+The Mashup Engine is the core component of Power Query responsible for executing data extraction, transformation, and loading (ETL) processes. It interprets the M scripts—Power Query's formula language—and performs the operations defined within them.
+[🔗 learn.microsoft.com](https://learn.microsoft.com/en-us/power-query/query-folding-basics)
+
+### Execution Environment
+
+The Mashup Engine operates within different environments depending on where Power Query is utilized:
+
+* **Desktop Applications:** In tools like Excel and Power BI Desktop, the Mashup Engine runs locally on the user's machine, leveraging local resources for data processing.
+* **Cloud Services:** In the Power BI service, the Mashup Engine executes in the cloud, utilizing Microsoft's infrastructure to process data.
+* **On-Premises Data Gateway:** When accessing on-premises data sources from cloud services, the Mashup Engine operates through the data gateway, ensuring secure data transmission between on-premises sources and cloud services.
 
 ```mermaid
 
 flowchart LR
     D((M Script))
-    B(Query)
+    B(Mashup engine)
     A[Data source] 
-    C[Output - Table]
+    C[Output]
 
-    D -- "(1) Reads" --> B
+    D -- "(1) Instructs" --> B
     B -- "(1) Query Data" --> A
     A -- "(2) Returns Data" --> B
     B -- "(3) Loads data" --> C
 
 
     subgraph "Mashup Execution Environment"
-       subgraph "Mashup Engine"
             B
-        end
     end
 
 ```
 
 ## How Can Power Query M Code Exfiltrate Data?
-Power Query’s M language allows combining data from multiple sources and calling web endpoints. A malicious (or experimental) Power Query could, for example, query a secure database and then silently send that data to an external web service. Let’s illustrate with a simplified snippet of Power Query M code that demonstrates the core concept of data exfiltration:
+Power Query’s M language allows combining data from multiple sources and calling web endpoints and Power Query can query a secure database and then silently send that data to an external web service. Let’s illustrate with a simplified snippet of Power Query M code that demonstrates the core concept of data exfiltration:
 
 
 ```pq
@@ -64,7 +71,7 @@ in
     
 In this example, the query connects to a Secure SQL Database (e.g. an internal FinanceDB) and retrieves data. Then it converts that data into JSON format, and uses the `Web.Contents` function to POST the data to an external web service (attacker.example.com). The `Result` of the web call (if any) is returned by the query, but the key point is that the sensitive data has now left the organization – it’s been sent to an external server controlled by the attacker.
 
-Microsoft’s own documentation explicitly notes this risk: “By using Web.Contents, users can make web requests with sensitive data in the body of the request [🔗 learn.microsoft.com](https://learn.microsoft.com/en-us/power-query/dataflows/data-exfiltration-best-practices#:~:text=,against%20another%20untrusted%20data%20source)". In a real-world example (see the provided Power Query code sample), an attacker even broke the data into chunks and sent it in batches to avoid detection or size limits. The Power Query script read rows from a SQL query (or CSV file), encoded each batch of ~50 rows as JSON, and exfiltrated each chunk by calling an external REST API endpoint. This technique could sneak large volumes of data out in pieces without obvious large transfers. 
+Microsoft’s own documentation explicitly notes this risk: “By using Web.Contents, users can make web requests with sensitive data in the body of the request [🔗 learn.microsoft.com](https://learn.microsoft.com/en-us/power-query/dataflows/data-exfiltration-best-practices#:~:text=,against%20another%20untrusted%20data%20source)". In a real-world example, an attacker even broke the data into chunks and sent it in batches to avoid detection or size limits.
 
 > Figure: Data Exfiltration Path via Power Query – The diagram below shows how an insider’s Power Query can extract data from a secure database and send it to an outside API, all within a single Power Query execution:
 
@@ -72,28 +79,25 @@ Microsoft’s own documentation explicitly notes this risk: “By using Web.Cont
 
 flowchart LR
     D((M Script))
-    B(Query)
-    A[SQL Database] 
+    B(Mashup engine)
+    A[SQL Data base] 
     C[External API Endpoint<br/>attacker-controlled]
 
-    D -- "(1) Reads" --> B
+    D -- "(1) Instructs" --> B
     B -- "(1) Query Data" --> A
     A -- "(2) Returns Sensitive Data" --> B
-    B -- "(3) HTTP POST with Data" --> C
+    B -- "(3) HTTP POST </br>Sensitive Data" --> C
 
     subgraph "Corp Network Boundary"
       A
     end
-    subgraph "Cloud or Gateway Execution Environment"
-       subgraph "Mashup Engine"
+    subgraph "Cloud Execution Environment"
             B
-        end
     end
         C:::outside
         classDef outside fill:#fdd
 
 ```
-
 
 In the above flow, the Power Query Mashup Engine (which might be running in the cloud service) has access to the secure database A (using provided credentials). It reads the data and then sends it out over the internet to C, an external endpoint. Notice that this exfiltration can occur even if the data source is inside the corporate network – the Mashup Engine runs outside the network by default, so it isn’t subject to the organization’s internal firewalls or DLP scanners in the usual way.[🔗 learn.microsoft.com](https://learn.microsoft.com/en-us/power-query/dataflows/data-exfiltration-best-practices#:~:text=A%20trusted%20user%20who%20has,programs%20can%20exfiltrate%20sensitive%20data). Effectively, the Power Query is acting as a bridge between the secure data source and the attacker’s server.
 
