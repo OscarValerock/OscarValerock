@@ -16,6 +16,32 @@ Data exfiltration is the act of moving sensitive data outside a trusted environm
 
 Power Query is powerful – it can connect to hundreds of data sources and, importantly, it can make web requests. By default, when Power Query runs in cloud services (e.g. Power BI dataflows or datamarts), it executes in the Power Query Online Mashup Engine, which operates in Microsoft’s cloud with unrestricted internet access [🔗 learn.microsoft.com](https://learn.microsoft.com/en-us/data-integration/gateway/data-connection-auditing#:~:text=data%20across%20hundreds%20of%20supported,accidental%20or%20malicious%20data%20exfiltration). In other words, if a user’s Power Query code is executed in the cloud, it can potentially send data to any external endpoint on the internet. This creates a potential security blind spot for organizations: a savvy user with data access can craft a query that exfiltrates (sends out) sensitive data, bypassing typical network protections.
 
+## Query evaluation
+
+> [name=OscarValerock] Needs further explanation of the engine.
+
+```mermaid
+
+flowchart LR
+    D((M Script))
+    B(Query)
+    A[Data source] 
+    C[Output - Table]
+
+    D -- "(1) Reads" --> B
+    B -- "(1) Query Data" --> A
+    A -- "(2) Returns Data" --> B
+    B -- "(3) Loads data" --> C
+
+
+    subgraph "Mashup Execution Environment"
+       subgraph "Mashup Engine"
+            B
+        end
+    end
+
+```
+
 ## How Can Power Query M Code Exfiltrate Data?
 Power Query’s M language allows combining data from multiple sources and calling web endpoints. A malicious (or experimental) Power Query could, for example, query a secure database and then silently send that data to an external web service. Let’s illustrate with a simplified snippet of Power Query M code that demonstrates the core concept of data exfiltration:
 
@@ -41,18 +67,33 @@ In this example, the query connects to a Secure SQL Database (e.g. an internal F
 Microsoft’s own documentation explicitly notes this risk: “By using Web.Contents, users can make web requests with sensitive data in the body of the request [🔗 learn.microsoft.com](https://learn.microsoft.com/en-us/power-query/dataflows/data-exfiltration-best-practices#:~:text=,against%20another%20untrusted%20data%20source)". In a real-world example (see the provided Power Query code sample), an attacker even broke the data into chunks and sent it in batches to avoid detection or size limits. The Power Query script read rows from a SQL query (or CSV file), encoded each batch of ~50 rows as JSON, and exfiltrated each chunk by calling an external REST API endpoint. This technique could sneak large volumes of data out in pieces without obvious large transfers. 
 
 > Figure: Data Exfiltration Path via Power Query – The diagram below shows how an insider’s Power Query can extract data from a secure database and send it to an outside API, all within a single Power Query execution:
+
 ```mermaid
+
 flowchart LR
-    A[Secure SQL Database trusted data source] -->|Query Data| B((Power Query<br/>Mashup Engine))
-    B -->|HTTP POST with Data| C[External API Endpoint<br/> attacker-controlled]
+    D((M Script))
+    B(Query)
+    A[SQL Database] 
+    C[External API Endpoint<br/>attacker-controlled]
+
+    D -- "(1) Reads" --> B
+    B -- "(1) Query Data" --> A
+    A -- "(2) Returns Sensitive Data" --> B
+    B -- "(3) HTTP POST with Data" --> C
+
     subgraph "Corp Network Boundary"
       A
     end
     subgraph "Cloud or Gateway Execution Environment"
-      B
+       subgraph "Mashup Engine"
+            B
+        end
     end
-    C:::outside
+        C:::outside
+        classDef outside fill:#fdd
+
 ```
+
 
 In the above flow, the Power Query Mashup Engine (which might be running in the cloud service) has access to the secure database A (using provided credentials). It reads the data and then sends it out over the internet to C, an external endpoint. Notice that this exfiltration can occur even if the data source is inside the corporate network – the Mashup Engine runs outside the network by default, so it isn’t subject to the organization’s internal firewalls or DLP scanners in the usual way.[🔗 learn.microsoft.com](https://learn.microsoft.com/en-us/power-query/dataflows/data-exfiltration-best-practices#:~:text=A%20trusted%20user%20who%20has,programs%20can%20exfiltrate%20sensitive%20data). Effectively, the Power Query is acting as a bridge between the secure data source and the attacker’s server.
 
@@ -99,3 +140,9 @@ While the above measures can reduce the risk, they come with significant limitat
 The ability to perform complex data mashups is one of Power Query’s greatest strengths – but as we’ve seen, it also introduces a serious security concern. An insider with the know-how can leverage Power Query to bypass traditional data loss prevention, making it a potential data exfiltration pipeline if left unchecked. The current Microsoft model does not offer an out-of-the-box, foolproof block against this behavior. Instead, organizations must use a combination of network isolation, gateway enforcement, and strict tenant-level policies to mitigate the risk, and even then, gaps remain. For IT administrators and data platform owners, the key takeaway is to be aware of this blind spot. If your environment allows Power Query to run code in the cloud (as is the case with Power BI dataflows, datamarts, Excel Online, etc.), you should assume that any data accessible by those queries could potentially be sent to an external site. In high-security environments, strongly consider disabling cloud-based Power Query execution (even though it’s an extreme step) or tightly constrain it to what’s absolutely necessary. At the very least, implement the network isolation strategies – ensure that sensitive databases can only be reached via your controlled networks or gateways, not directly from the internet[🔗 learn.microsoft.com](https://learn.microsoft.com/en-us/power-query/dataflows/data-exfiltration-best-practices#:~:text=These%20network%20isolation%20policies%20must,Additionally%2C%20since)[🔗 learn.microsoft.com](https://learn.microsoft.com/en-us/power-query/dataflows/data-exfiltration-best-practices#:~:text=connections%20to%20an%20on,risks%20associated%20with%20arbitrary%20code). 
 
 Moving forward, we can anticipate better controls from Microsoft (such as connector allowlisting and improved auditing[🔗 learn.microsoft.com](https://learn.microsoft.com/en-us/power-query/dataflows/data-exfiltration-best-practices#:~:text=The%20following%20list%20contains%20some,data%20exfiltration%20risks%20in%20Fabric), but until then, we have to rely on these broader security measures. Educate your teams about this risk so that power users and analysts understand why certain restrictions (like using gateways or blocking unknown connectors) might be in place. If you’re a Power BI or IT admin, keep an eye on tenant settings and the roadmap for any new data exfiltration protection features. This is a nuanced security hole – it’s not a traditional “bug” that can be patched, but rather an inherent capability being misused. Closing it completely is non-trivial, which is why awareness is crucial. By knowing the limits of current protections, you can better harden your environment and avoid unpleasant surprises. The bottom line is that data exfiltration via Power Query is possible and challenging to prevent, especially in cloud-enabled scenarios[🔗 learn.microsoft.com](https://learn.microsoft.com/en-us/power-query/dataflows/data-exfiltration-best-practices#:~:text=A%20trusted%20user%20who%20has,programs%20can%20exfiltrate%20sensitive%20data) – so it’s on us to be vigilant and put layers of defense around it.
+
+
+## More resources: 
+* [Power BI dataflows enhanced compute engine](https://ssbipolar.com/2019/06/29/power-bi-dataflows-enhanced-compute-engine)
+* [Query evaluation in Power Query](https://learn.microsoft.com/en-us/power-query/query-folding-basics)
+* [On-premises data gateway January update is now available](https://powerbi.microsoft.com/en-us/blog/on-premises-data-gateway-january-update-is-now-available/)
