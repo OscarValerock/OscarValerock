@@ -15,27 +15,11 @@ const allTags = [...new Set(allPosts.flatMap((post: any) => post.data.tags || []
 ---
 
 <MainLayout title="Blog">
-  <div class="container mx-auto max-w-5xl">
+  <div class="container mx-auto px-0">
     <div class="space-y-8 mb-12">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Blog</h1>
-        <SearchBar client:load onSearch={(query) => {
-          // The search will be handled client-side with JavaScript
-          const searchInput = query.toLowerCase();
-          const posts = document.querySelectorAll('.blog-post-card');
-          
-          posts.forEach(post => {
-            const title = post.getAttribute('data-title')?.toLowerCase() || '';
-            const description = post.getAttribute('data-description')?.toLowerCase() || '';
-            const tags = post.getAttribute('data-tags')?.toLowerCase() || '';
-            
-            if (title.includes(searchInput) || description.includes(searchInput) || tags.includes(searchInput)) {
-              post.classList.remove('hidden');
-            } else {
-              post.classList.add('hidden');
-            }
-          });
-        }} className="w-full md:w-64" />
+        <SearchBar client:load id="blog-search" className="w-full md:w-64" />
       </div>
       
       {allTags.length > 0 && (
@@ -63,7 +47,7 @@ const allTags = [...new Set(allPosts.flatMap((post: any) => post.data.tags || []
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {allPosts.map((post: any) => (
         <div 
-          class="blog-post-card" 
+          class="blog-post-card h-full" 
           data-title={post.data.title}
           data-description={post.data.description}
           data-tags={(post.data.tags || []).join(',')}
@@ -94,12 +78,14 @@ const allTags = [...new Set(allPosts.flatMap((post: any) => post.data.tags || []
   </div>
 
   <script>
-    // Handle tag filtering
+    // Handle tag filtering and search
     document.addEventListener('DOMContentLoaded', () => {
       const tagButtons = document.querySelectorAll('.tag-filter');
       const resetButton = document.querySelector('.tag-filter-reset');
       const posts = document.querySelectorAll('.blog-post-card');
+      const searchInput = document.getElementById('blog-search');
       
+      // Handle tag filtering
       tagButtons.forEach(button => {
         button.addEventListener('click', () => {
           const tag = button.getAttribute('data-tag')?.toLowerCase();
@@ -126,6 +112,25 @@ const allTags = [...new Set(allPosts.flatMap((post: any) => post.data.tags || []
         });
         posts.forEach(post => post.classList.remove('hidden'));
       });
+      
+      // Handle search
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const query = (e.target as HTMLInputElement).value.toLowerCase();
+          
+          posts.forEach(post => {
+            const title = post.getAttribute('data-title')?.toLowerCase() || '';
+            const description = post.getAttribute('data-description')?.toLowerCase() || '';
+            const tags = post.getAttribute('data-tags')?.toLowerCase() || '';
+            
+            if (title.includes(query) || description.includes(query) || tags.includes(query)) {
+              post.classList.remove('hidden');
+            } else {
+              post.classList.add('hidden');
+            }
+          });
+        });
+      }
     });
   </script>
 </MainLayout>

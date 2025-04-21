@@ -27,17 +27,14 @@ const { title, description = "Oscar's personal blog and portfolio" } = Astro.pro
   <body class="min-h-screen bg-background font-sans antialiased">
     <div class="flex min-h-screen flex-col">
       <header class="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div class="container flex h-16 items-center justify-between">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
           <div class="flex gap-6 md:gap-10">
             <a href="/" class="flex items-center space-x-2">
-              <span class="inline-block font-bold text-xl">Oscar</span>
+              <span class="inline-block font-bold text-xl">🤘 Oscar Martínez</span>
             </a>
             <nav class="hidden md:flex gap-6">
               <a href="/" class="flex items-center text-sm font-medium transition-colors hover:text-primary">
                 Home
-              </a>
-              <a href="/latest" class="flex items-center text-sm font-medium transition-colors hover:text-primary">
-                Latest Posts
               </a>
               <a href="/blog" class="flex items-center text-sm font-medium transition-colors hover:text-primary">
                 Blog
@@ -59,13 +56,13 @@ const { title, description = "Oscar's personal blog and portfolio" } = Astro.pro
       </header>
       
       <main class="flex-1">
-        <div class="container py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <slot />
         </div>
       </main>
       
       <footer class="border-t bg-muted/40">
-        <div class="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
           <div class="text-center text-sm leading-loose text-muted-foreground md:text-left">
             &copy; {new Date().getFullYear()} Oscar. All rights reserved.
           </div>

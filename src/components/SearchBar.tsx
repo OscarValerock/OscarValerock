@@ -1,42 +1,37 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 interface SearchBarProps {
-  onSearch: (query: string) => void;
+  onSearch?: (query: string) => void;
   className?: string;
+  id?: string;
 }
 
-export default function SearchBar({ onSearch, className = '' }: SearchBarProps) {
-  const [searchQuery, setSearchQuery] = useState('');
+export default function SearchBar({ onSearch, className = '', id = 'search-input' }: SearchBarProps) {
+  const [query, setQuery] = useState('');
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSearch(searchQuery);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setQuery(value);
+    if (onSearch) {
+      onSearch(value);
+    }
   };
 
   return (
-    <form onSubmit={handleSearch} className={`relative ${className}`}>
+    <div className={`relative ${className}`}>
+      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <svg className="w-4 h-4 text-muted-foreground" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+        </svg>
+      </div>
       <input
-        type="text"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        id={id}
+        type="search"
+        value={query}
+        onChange={handleInputChange}
+        className="block w-full py-2 pl-10 pr-3 text-sm rounded-md border bg-background focus:ring-2 focus:ring-primary/50 focus:border-primary"
         placeholder="Search posts..."
-        className="w-full h-10 pl-10 pr-4 rounded-md border border-input bg-background text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       />
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        width="24" 
-        height="24" 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
-        strokeLinejoin="round" 
-        className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
-      >
-        <circle cx="11" cy="11" r="8"></circle>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-      </svg>
-    </form>
+    </div>
   );
 }

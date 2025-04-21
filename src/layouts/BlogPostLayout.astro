@@ -6,7 +6,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <MainLayout title={frontmatter.title} description={frontmatter.description}>
-  <article class="max-w-3xl mx-auto">
+  <article class="mx-auto max-w-4xl">
     {frontmatter.heroImage && (
       <img 
         src={frontmatter.heroImage} 
