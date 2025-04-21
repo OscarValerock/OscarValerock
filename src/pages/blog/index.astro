@@ -15,48 +15,50 @@ const allTags = [...new Set(allPosts.flatMap((post: any) => post.data.tags || []
 ---
 
 <MainLayout title="Blog">
-  <div class="container">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-      <h1 class="text-4xl font-bold">Blog</h1>
-      <SearchBar client:load onSearch={(query) => {
-        // The search will be handled client-side with JavaScript
-        const searchInput = query.toLowerCase();
-        const posts = document.querySelectorAll('.blog-post-card');
-        
-        posts.forEach(post => {
-          const title = post.getAttribute('data-title')?.toLowerCase() || '';
-          const description = post.getAttribute('data-description')?.toLowerCase() || '';
-          const tags = post.getAttribute('data-tags')?.toLowerCase() || '';
+  <div class="container mx-auto max-w-5xl">
+    <div class="space-y-8 mb-12">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Blog</h1>
+        <SearchBar client:load onSearch={(query) => {
+          // The search will be handled client-side with JavaScript
+          const searchInput = query.toLowerCase();
+          const posts = document.querySelectorAll('.blog-post-card');
           
-          if (title.includes(searchInput) || description.includes(searchInput) || tags.includes(searchInput)) {
-            post.classList.remove('hidden');
-          } else {
-            post.classList.add('hidden');
-          }
-        });
-      }} className="w-full md:w-64" />
-    </div>
-    
-    {allTags.length > 0 && (
-      <div class="mb-8">
-        <h2 class="text-sm font-medium mb-2">Filter by tag:</h2>
-        <div class="flex flex-wrap gap-2">
-          {allTags.map(tag => (
-            <button
-              class="tag-filter text-sm bg-muted hover:bg-muted/80 px-3 py-1 rounded-full"
-              data-tag={tag}
-            >
-              {tag}
-            </button>
-          ))}
-          <button
-            class="tag-filter-reset text-sm text-primary hover:underline px-2"
-          >
-            Reset filters
-          </button>
-        </div>
+          posts.forEach(post => {
+            const title = post.getAttribute('data-title')?.toLowerCase() || '';
+            const description = post.getAttribute('data-description')?.toLowerCase() || '';
+            const tags = post.getAttribute('data-tags')?.toLowerCase() || '';
+            
+            if (title.includes(searchInput) || description.includes(searchInput) || tags.includes(searchInput)) {
+              post.classList.remove('hidden');
+            } else {
+              post.classList.add('hidden');
+            }
+          });
+        }} className="w-full md:w-64" />
       </div>
-    )}
+      
+      {allTags.length > 0 && (
+        <div>
+          <h2 class="text-sm font-medium mb-3">Filter by tag</h2>
+          <div class="flex flex-wrap gap-2">
+            {allTags.map(tag => (
+              <button
+                class="tag-filter text-sm bg-accent text-accent-foreground hover:bg-accent/80 transition-colors px-3 py-1 rounded-full"
+                data-tag={tag}
+              >
+                {tag}
+              </button>
+            ))}
+            <button
+              class="tag-filter-reset text-sm text-primary hover:text-primary/80 hover:underline transition-colors px-2"
+            >
+              Reset filters
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
     
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {allPosts.map((post: any) => (
@@ -79,8 +81,13 @@ const allTags = [...new Set(allPosts.flatMap((post: any) => post.data.tags || []
     </div>
     
     {allPosts.length === 0 && (
-      <div class="text-center py-12">
-        <h3 class="text-2xl font-medium mb-4">No posts found</h3>
+      <div class="text-center py-16">
+        <div class="inline-flex items-center justify-center rounded-full bg-muted p-8 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-muted-foreground">
+            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-medium mb-2">No posts found</h3>
         <p class="text-muted-foreground">Check back soon for new content!</p>
       </div>
     )}
@@ -113,7 +120,10 @@ const allTags = [...new Set(allPosts.flatMap((post: any) => post.data.tags || []
       });
       
       resetButton?.addEventListener('click', () => {
-        tagButtons.forEach(btn => btn.classList.remove('bg-primary', 'text-primary-foreground'));
+        tagButtons.forEach(btn => {
+          btn.classList.remove('bg-primary', 'text-primary-foreground');
+          btn.classList.add('bg-accent', 'text-accent-foreground');
+        });
         posts.forEach(post => post.classList.remove('hidden'));
       });
     });

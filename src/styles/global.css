@@ -114,7 +114,37 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .prose {
+    @apply max-w-none;
+  }
+  
+  .prose pre {
+    @apply rounded-lg border bg-card text-card-foreground;
+  }
+  
+  .prose code {
+    @apply rounded px-1 py-0.5 bg-muted text-foreground;
+  }
+  
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    @apply text-foreground;
+  }
+  
+  .prose a {
+    @apply text-primary underline-offset-4 hover:text-primary/80 transition-colors;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-primary/20 bg-muted/50 px-4 py-2 rounded-r-md;
   }
 }
