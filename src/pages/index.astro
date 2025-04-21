@@ -1,25 +1,87 @@
 ---
-import '../styles/global.css';
-// Component Imports
-import Button from '../components/Button.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+// Get 3 most recent blog posts
+const recentPosts = (await getCollection('blog'))
+  .sort((a: any, b: any) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
+<MainLayout title="Oscar - Developer & Blogger">
+  <!-- Hero Section -->
+  <section class="flex flex-col gap-4 py-12 md:py-24">
+    <div class="container flex flex-col items-center gap-4 text-center">
+      <h1 class="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+        Hi, I'm Oscar
+      </h1>
+      <p class="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
+        Software developer, tech enthusiast, and blogger. I share my journey and insights about web development and technology.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a 
+          href="/blog" 
+          class="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+        >
+          Read My Blog
+        </a>
+        <a 
+          href="#about" 
+          class="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+        >
+          Learn More
+        </a>
+      </div>
+    </div>
+  </section>
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
-	</body>
-</html>
+  <!-- About Section -->
+  <section id="about" class="py-12 bg-card rounded-lg">
+    <div class="container">
+      <h2 class="text-3xl font-bold mb-6 text-center">About Me</h2>
+      <div class="flex flex-col md:flex-row gap-8 items-center">
+        <div class="flex-1">
+          <p class="mb-4">
+            I'm a passionate web developer with expertise in modern JavaScript frameworks and tools. 
+            With several years of experience building web applications, I focus on creating intuitive, 
+            efficient, and accessible user experiences.
+          </p>
+          <p>
+            When I'm not coding, I enjoy sharing my knowledge and experiences through my blog. 
+            I write about web development, new technologies, and tips for fellow developers.
+          </p>
+        </div>
+        <div class="flex-1 flex justify-center">
+          <!-- You can replace this with your own image -->
+          <div class="w-64 h-64 rounded-full bg-muted flex items-center justify-center">
+            <span class="text-2xl font-bold">Oscar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Posts Section -->
+  <section class="py-12">
+    <div class="container">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-3xl font-bold">Recent Posts</h2>
+        <a href="/latest" class="text-primary hover:underline">View All</a>
+      </div>
+      
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {recentPosts.map((post: any) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            slug={post.slug}
+            heroImage={post.data.heroImage}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</MainLayout>

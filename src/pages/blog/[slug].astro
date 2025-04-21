@@ -1,0 +1,81 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+import { formatDate } from '../../lib/utils';
+
+// Generate static paths for all blog posts
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map((entry: CollectionEntry<'blog'>) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+}
+
+// Get the blog post for this page
+const { entry } = Astro.props;
+
+let Content;
+let renderError = false;
+try {
+  const rendered = await entry.render();
+  Content = rendered.Content;
+} catch (e) {
+  console.error(`Error rendering content for ${entry.slug}:`, e);
+  renderError = true;
+}
+
+// Safely format the date or provide a fallback
+const formattedDate = entry.data.pubDate instanceof Date 
+  ? formatDate(entry.data.pubDate) 
+  : 'No date';
+---
+
+<MainLayout 
+  title={entry.data.title || 'Untitled Post'} 
+  description={entry.data.description || 'No description available'}
+>
+  <article class="max-w-3xl mx-auto">
+    {entry.data.heroImage && (
+      <img 
+        src={entry.data.heroImage} 
+        alt={entry.data.title || 'Blog post image'} 
+        class="rounded-lg w-full aspect-video object-cover mb-6"
+        loading="eager"
+        onerror="this.onerror=null; this.src='/placeholder-image.jpg';"
+      />
+    )}
+    <h1 class="text-4xl font-bold mb-2">{entry.data.title || 'Untitled Post'}</h1>
+    <div class="flex flex-wrap gap-2 items-center text-muted-foreground mb-6">
+      {entry.data.pubDate && (
+        <time datetime={entry.data.pubDate instanceof Date ? entry.data.pubDate.toISOString() : ''}>
+          {formattedDate}
+        </time>
+      )}
+      {entry.data.pubDate && entry.data.author && <span>•</span>}
+      {entry.data.author && <span>{entry.data.author}</span>}
+      {entry.data.tags && Array.isArray(entry.data.tags) && entry.data.tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 ml-2">
+          {entry.data.tags.map((tag: string) => (
+            <a href={`/blog/tag/${encodeURIComponent(tag)}`} class="text-xs bg-muted px-2 py-1 rounded-full">
+              {tag}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+    <div class="prose prose-neutral dark:prose-invert max-w-none">
+      {renderError ? (
+        <p class="text-red-500">Error rendering post content.</p>
+      ) : Content ? (
+        <Content />
+      ) : (
+        <p>Loading content...</p>
+      )}
+    </div>
+  </article>
+</MainLayout>
