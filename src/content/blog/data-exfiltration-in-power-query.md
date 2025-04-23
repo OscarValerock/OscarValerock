@@ -1,18 +1,16 @@
 ---
-title: Data Exfiltration in Power Query
+title: Data Exfiltration in Power Query - Understanding the Risk and Protections
 author: Oscar
 pubDate: 2025-04-21
 slug: data-exfiltration-in-power-query
 featured: false
-draft: false
+draft: true
 tags:
   - Power Query
   - Security
 description: "Data Exfiltration in Power Query: Understanding the Risk and Protections"
 ---
-# Data Exfiltration in Power Query: Understanding the Risk and Protections
-
-Written by : [Oscar Martínez Valero](https://www.linkedin.com/in/oscarmartinezv/)
+Written by : [Oscar Martínez Valero.](https://www.linkedin.com/in/oscarmartinezv/)
 
 Reviewed by: [Alex Dean](https://www.linkedin.com/in/alxdean)
 
@@ -68,6 +66,7 @@ let
 in
     Result
 ```
+
 > Figure: Simplified snippet of Power Query M code
     
 In this example, the query connects to a Secure SQL Database (e.g. an internal FinanceDB) and retrieves data. Then it converts that data and uses a function to send the data to an external web service. The `Result` of the web call (if any) is returned by the query, but the key point is that the sensitive data has now left the organization – it's been sent to an external server controlled by the attacker.

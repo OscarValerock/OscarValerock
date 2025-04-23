@@ -5,9 +5,11 @@ interface Props {
   title: string;
   description: string;
   pubDate: Date;
-  slug: string;
+  slug?: string;
   heroImage?: string;
   tags?: string[];
+  author?: string;
+  url?: string;
 }
 
 const { title, description, pubDate, slug, heroImage, tags } = Astro.props;

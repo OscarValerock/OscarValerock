@@ -6,6 +6,7 @@ import { getCollection } from 'astro:content';
 // Get 3 most recent blog posts
 const recentPosts = (await getCollection('blog'))
   .sort((a: any, b: any) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .filter((post: any) => post.data.draft !== true)
   .slice(0, 3);
 ---
 

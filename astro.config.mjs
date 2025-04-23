@@ -16,7 +16,7 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: {
       type: 'shiki',
-      excludeLangs: ['mermaid', 'math'],
+      excludeLangs: ['mermaid', 'math', 'pq', '', 'python'],
     },
     rehypePlugins: [rehypeMermaid],
   },

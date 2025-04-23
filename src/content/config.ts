@@ -9,7 +9,8 @@ const blogCollection = defineCollection({
     updatedDate: z.date().optional(),
     author: z.string().default('Oscar'),
     heroImage: z.string().optional(),
-    tags: z.array(z.string()).optional()
+    tags: z.array(z.string()).optional(),
+    draft : z.boolean().default(false)
   })
 });
 

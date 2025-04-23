@@ -5,7 +5,8 @@ import SearchBar from '../../components/SearchBar';
 import { getCollection } from 'astro:content';
 
 // Get all blog posts
-let allPosts = await getCollection('blog');
+let allPosts = (await getCollection('blog'))
+  .filter((post: any) => post.data.draft !== true);
 
 // Sort posts by pubDate in descending order
 allPosts = allPosts.sort((a: any, b: any) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
