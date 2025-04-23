@@ -4,7 +4,7 @@ author: Oscar
 pubDate: 2025-04-21
 slug: data-exfiltration-in-power-query
 featured: false
-draft: true
+draft: false
 tags:
   - Power Query
   - Security
