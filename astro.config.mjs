@@ -5,13 +5,19 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import rehypeMermaid from 'rehype-mermaid';
 
+// Get site URL from environment or use default
+const site = process.env.SITE_URL || 'https://valerock.com';
+// Get base path from URL if it exists
+const basePath = new URL(site).pathname !== '/' ? new URL(site).pathname : undefined;
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://valerock.com',
+  site,
+  base: basePath,
+  trailingSlash: 'always',
   vite: {
       plugins: [tailwindcss()]
-	},
-
+    },
   integrations: [
     react(),
     sitemap({
