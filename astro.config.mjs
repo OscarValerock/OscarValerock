@@ -14,7 +14,6 @@ const basePath = new URL(site).pathname !== '/' ? new URL(site).pathname : undef
 export default defineConfig({
   site,
   base: basePath,
-  trailingSlash: 'always',
   vite: {
       plugins: [tailwindcss()]
     },
