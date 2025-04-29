@@ -1,15 +1,17 @@
 ---
 title: About hiring freelancers
-author: Oscar
+description: "With over $7K spent on freelancers, key lessons emerge: discover hidden talent, avoid open-ended hourly contracts, and build trust with clear boundaries."
 pubDate: 2025-02-06
 updatedDate: 2025-02-06
 slug: about-hiring-freelancers
 featured: false
-draft: false
+draft: true
 tags:
   - Diary
   - Entrepreneurships
-description: "With over $7K spent on freelancers, key lessons emerge: discover hidden talent, avoid open-ended hourly contracts, and build trust with clear boundaries.s"
+author:
+  name: Oscar
+  link: https://example.com/authors/oscar
 ---
 
 

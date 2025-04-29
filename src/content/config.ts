@@ -7,10 +7,21 @@ const blogCollection = defineCollection({
     description: z.string(),
     pubDate: z.date(),
     updatedDate: z.date().optional(),
-    author: z.string().default('Oscar'),
-    heroImage: z.string().optional(),
+    slug: z.string().optional(),
+    featured: z.boolean().optional(),
+    draft: z.boolean().default(false),
     tags: z.array(z.string()).optional(),
-    draft : z.boolean().default(false)
+    author: z.object({
+      name: z.string(),
+      link: z.string().url(),
+    }).optional(),
+    reviewedBy: z
+      .object({
+        name: z.string(),
+        link: z.string().url(),
+      })
+      .optional(),
+    heroImage: z.string().optional()
   })
 });
 

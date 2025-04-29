@@ -1,16 +1,42 @@
 ---
 title: Beaten by the best and come back for more
-author: Oscar
+description: "Alex, my six-year-old, struggled in his first soccer training but remained enthusiastic. His resilience taught me to embrace failure and persist. Once again, I'm learning from my young teacher."
 pubDate: 2019-05-01
 slug: beaten-by-the-best-and-come-back-for-more
 featured: false
 draft: false
 tags:
   - Personal
-description: "Alex, my six-year-old, struggled in his first soccer training but remained enthusiastic. His resilience taught me to embrace failure and persist. Once again, I'm learning from my young teacher."
+author:
+  name: Oscar
+  link: https://example.com/authors/oscar
 ---
 
+
 # Beaten by the best and come back for more.
+
+
+
+```mermaid
+
+flowchart LR
+    A((M Script))
+    B(Mashup engine)
+    C[Data source] 
+    D[Output]
+
+    A -- "(1) Instructs" --> B
+    B -- "(1) Query Data" --> C
+    C -- "(2) Returns Data" --> B
+    B -- "(3) Loads data" --> D
+
+
+    subgraph "Mashup Execution Environment"
+            B
+    end
+
+```
+
 
 ![Beaten by the best](https://github.com/OscarValerock/OscarValerock/blob/main/src/content/blog/beaten-by-the-best-and-come-back-for-more/Beaten%20by%20the%20best.jpg?raw=true)
 
