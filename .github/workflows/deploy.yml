@@ -1,0 +1,69 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  # Trigger the workflow on push to the main branch
+  push:
+    branches:
+      - main
+  # Allow manual triggering
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read # Allows checkout
+  pages: write # Allows deployment to GitHub Pages
+  id-token: write # Allows identity token generation for deployment
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build Astro Site
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # Using latest v4
+
+      - name: Setup Node.js 20.x
+        uses: actions/setup-node@v4 # Using latest v4
+        with:
+          node-version: 20.x # Recommended LTS version
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      # Install Playwright and required browsers for rendering (e.g., Mermaid)
+      # These steps are specific to your build needs (like Mermaid rendering with Playwright)
+      - name: Install Playwright and Mermaid support
+        run: |
+          npm install -D @playwright/test@latest
+          npm install playwright
+          npm install mermaid-isomorphic
+          npx playwright install --with-deps chromium
+
+      # Build the Astro production site
+      - name: Build Astro Production Site
+        run: npm run build
+        # NOTE: Ensure your astro.config.mjs is configured correctly
+        # for GitHub Pages base path if needed (e.g., base: '/<repo-name>/')
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3 # Using latest v3
+        with:
+          # Directory containing the static files built by Astro.
+          # Default Astro output is './dist'. Adjust if yours is different.
+          path: './dist'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    name: Deploy to GitHub Pages
+    needs: build # This job depends on the 'build' job completing successfully
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # Using latest v4
+        # This action automatically downloads the artifact uploaded by upload-pages-artifact@v3

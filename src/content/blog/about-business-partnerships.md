@@ -1,6 +1,6 @@
 ---
 title: About business partnerships
-author: Oscar Martinez
+description: "A personal reflection on the challenges of choosing a business partner, the evolution of BIBB, and a cofounder’s departure. While considering the future of BIBB, the immediate focus shifts to an upcoming presentation at the Association of Proposal Management Professionals."
 pubDate: 2025-01-31T00:00:00.000+01:00
 updatedDate: 2025-02-05T00:00:00.000+01:00
 slug: about-business-partnerships
@@ -9,9 +9,10 @@ draft: false
 tags:
   - Diary
   - Entrepreneurship
-description: "A personal reflection on the challenges of choosing a business partner, the evolution of BIBB, and a cofounder’s departure. While considering the future of BIBB, the immediate focus shifts to an upcoming presentation at the Association of Proposal Management Professionals."
+author:
+  name: Oscar Martinez
+  link: https://example.com/authors/oscar-martinez
 ---
-
 # About business partnerships
 
 After two failed businesses and one ([BIBB](https://www.bibb.pro/)) that has yet to fully find its shape, I’ve come to believe that among the many challenges of building a venture, choosing the right business partner is the hardest step. It’s not just about skillsets—it’s also about trust, direction, and personal alignment. 

@@ -1,6 +1,5 @@
 ---
 title: Data Exfiltration in Power Query - Understanding the Risk and Protections
-author: Oscar
 pubDate: 2025-04-21
 slug: data-exfiltration-in-power-query
 featured: false
@@ -9,10 +8,14 @@ tags:
   - Power Query
   - Security
 description: "Data Exfiltration in Power Query: Understanding the Risk and Protections"
+author:
+  name: Oscar Martínez Valero
+  link: https://www.linkedin.com/in/oscarmartinezv/
+reviewedBy:
+  name: Alex Dean
+  link: https://www.linkedin.com/in/alxdean
 ---
-Written by : [Oscar Martínez Valero.](https://www.linkedin.com/in/oscarmartinezv/)
 
-Reviewed by: [Alex Dean](https://www.linkedin.com/in/alxdean)
 
 ## What is Data Exfiltration in Power Query?
 Data exfiltration is the act of moving sensitive data outside a trusted environment without authorization. In the context of Power Query (the data transformation engine behind Excel, Power BI, dataflows, etc.), this means an insider could use a Power Query script to siphon data from secure sources (like databases) out to an external destination. Microsoft defines data exfiltration as occurring when sensitive business data is accidentally or intentionally moved outside of a trusted boundary.[^1]

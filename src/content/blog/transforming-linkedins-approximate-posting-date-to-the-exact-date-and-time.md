@@ -1,6 +1,6 @@
 ---
 title: Transforming LinkedIn’s Approximate Posting Date to the Exact Date and Time
-author: Oscar
+description: "Learn how Pinpoint the Exact Posting Date from LinkedIn Activity Numbers Even When You Only See ‘1w’ or ‘3d’"
 pubDate: 2024-06-02
 slug: transforming-linkedins-approximate-posting-date-to-the-exact-date-and-time
 featured: false
@@ -8,8 +8,11 @@ draft: false
 tags:
   - LinkedIn
   - Python
-description: "Learn how Pinpoint the Exact Posting Date from LinkedIn Activity Numbers Even When You Only See ‘1w’ or ‘3d’"
+author:
+  name: Oscar
+  link: https://example.com/authors/oscar
 ---
+
 
 
 # Transforming LinkedIn’s Approximate Posting Date to the Exact Date and Time

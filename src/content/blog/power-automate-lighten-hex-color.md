@@ -1,6 +1,6 @@
 ---
 title: Lighten a HEX Color in Power Automate & Logic Apps
-author: Oscar
+description: "Learn how to programmatically lighten HEX color codes in Power Automate and Logic Apps using simple mathematical calculations and color space conversion techniques."
 pubDate: 2025-01-17
 slug: power-automate-lighten-hex-color
 featured: false
@@ -8,8 +8,11 @@ draft: false
 tags:
   - Power Automate
   - Logic Apps
-description: "Learn how to programmatically lighten HEX color codes in Power Automate and Logic Apps using simple mathematical calculations and color space conversion techniques."
+author:
+  name: Oscar
+  link: https://example.com/authors/oscar
 ---
+
 
 
 # Lighten a HEX Color in Power Automate / Logic Apps
