@@ -23,6 +23,16 @@ const { title, description = "Oscar's personal blog and portfolio" } = Astro.pro
       const theme = localStorage.getItem('theme') || 'light';
       document.documentElement.classList.toggle('dark', theme === 'dark');
     </script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7SZV3DT85"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B7SZV3DT85');
+    </script>
   </head>
   <body class="min-h-screen bg-background font-sans antialiased">
     <div class="flex min-h-screen flex-col">
