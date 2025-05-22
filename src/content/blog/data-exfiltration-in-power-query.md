@@ -16,6 +16,13 @@ reviewedBy:
   link: https://www.linkedin.com/in/alxdean
 ---
 
+> **Acknowledgement**
+> Much of the foundational guidance on Power Query data-exfiltration risk comes from Microsoft’s own documentation—particularly the *Dataflows: Data exfiltration best practices* article on Microsoft Learn [^37].
+>
+> My aim here is to broaden that discussion: the same insider-threat pattern affects **Power BI semantic models (datasets)**, Excel Power Query, and any other workload that executes M code. By tracing the risk end-to-end—from dataflows *and* semantic models—I hope to give security teams a fuller picture and practical mitigations that go beyond the dataflow lens.
+
+> **Thanks**
+> Special thanks to [Alex Dean](https://www.linkedin.com/in/alxdean) for his invaluable input while reviewg this text.
 
 ## What is Data Exfiltration in Power Query?
 Data exfiltration is the act of moving sensitive data outside a trusted environment without authorization. In the context of Power Query (the data transformation engine behind Excel, Power BI, dataflows, etc.), this means an insider could use a Power Query script to siphon data from secure sources (like databases) out to an external destination. Microsoft defines data exfiltration as occurring when sensitive business data is accidentally or intentionally moved outside of a trusted boundary.[^1]
@@ -166,6 +173,19 @@ flowchart LR
     classDef disabled fill:#eee,stroke-dasharray: 5 5
 ```
 
+> **Field-test caveat** – In hands-on testing across differet tenant + gateway configurations, I’ve found this rule is *not* enforced 100 percent of the time. In certain setups the semantic-model refresh still succeeds even when one or more connectors appear to bypass the bound gateway, while in other runs the refresh fails (as Microsoft’s guidance suggests it should). Results seem to vary with connector type and credential caching, so treat gateway binding as a strong but not infallible control and validate each workload individually.
+> 
+<figure>
+  <img src="https://github.com/OscarValerock/OscarValerock/blob/main/public/blog-images/Exfiltrate01.png?raw=true" alt="Refresh succeeds even though gateway is bypassed">
+  <figcaption>Gateway bypass: refresh completes without enforced gateway evaluation.</figcaption>
+</figure>
+<figure>
+  <img src="https://github.com/OscarValerock/OscarValerock/blob/main/public/blog-images/Exfiltrate02.png?raw=true" alt="Refresh fails">
+  <figcaption>Gateway forced evaluation: refresh fail.</figcaption>
+</figure>
+
+
+
 * **Force On-Premises (Gateway) Execution:** If truly necessary, an organization can disable cloud execution of Power Query entirely, **forcing all queries to run through on-premises gateways.** Currently, Microsoft offers this as a tenant-wide policy (set via a support ticket) that turns off the Power Query Online Mashup Engine for the entire tenant.[^13][^14] After this policy is applied, any attempt at cloud evaluation will fail with an error like *"Cloud evaluation request denied based on tenant policies. Please use a data gateway and try again."*[^15] This effectively guarantees that none of your Power Query code runs in Microsoft's cloud environment – everything has to go through a gateway that you control. However, this is a very blunt measure: it's all or nothing (more on the drawbacks later). Microsoft notes that this policy impacts all dataflow-like operations (Power BI dataflows, Fabric dataflows, Power Platform dataflows, datamarts, etc.), and it is applied tenant-wide, not to specific workspaces or users.[^16] In other words, you can't selectively allow some cloud executions and block others with this policy; turning it on will break any queries that were not already using a gateway, until they are reconfigured.
 
 * **Tenant and Identity Policies:** Another aspect of Microsoft's guidance is to use identity-driven controls to prevent data from leaving the organization's tenant or being accessed by unauthorized users. For cloud SaaS data stores (like Dataverse, Fabric Lakehouse, or even Power BI itself as a data source), pure network isolation might not be feasible because these services have multi-tenant endpoints. Instead, Microsoft recommends tenant isolation policies at the Azure AD (Entra ID) level.[^17][^18] Examples include: only allow authentication via your organization's Azure AD (no using generic usernames/passwords or anonymous access to data sources), enforce location-based conditional access so that only users on managed devices (e.g. corporate laptops or network) can access the Power BI/Fabric service, and use tenant restrictions to block your users from signing into other tenants' Power BI environments (and vice versa).[^19] These measures help ensure that a user can't, say, use their credentials on an external Power BI tenant or tool to pull data out, and that only approved devices within your org can run queries. While these identity-centric controls don't directly stop something like `Web.Contents` calls, they do guard against certain exfiltration paths (such as an employee trying to shuttle data to another cloud tenant or personal account).
@@ -236,4 +256,5 @@ Moving forward, we can anticipate better controls from Microsoft (such as connec
 [^34]: https://learn.microsoft.com/en-us/power-query/dataflows/data-exfiltration-best-practices#:~:text=connections%20to%20an%20on,risks%20associated%20with%20arbitrary%20code
 [^35]: https://learn.microsoft.com/en-us/power-query/dataflows/data-exfiltration-best-practices#:~:text=The%20following%20list%20contains%20some,data%20exfiltration%20risks%20in%20Fabric
 [^36]: https://learn.microsoft.com/en-us/power-query/dataflows/data-exfiltration-best-practices#:~:text=A%20trusted%20user%20who%20has,programs%20can%20exfiltrate%20sensitive%20data
+[^37]: https://learn.microsoft.com/en-us/power-query/dataflows/data-exfiltration-best-practices
 

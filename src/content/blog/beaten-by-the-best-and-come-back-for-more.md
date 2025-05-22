@@ -16,29 +16,7 @@ author:
 # Beaten by the best and come back for more.
 
 
-
-```mermaid
-
-flowchart LR
-    A((M Script))
-    B(Mashup engine)
-    C[Data source] 
-    D[Output]
-
-    A -- "(1) Instructs" --> B
-    B -- "(1) Query Data" --> C
-    C -- "(2) Returns Data" --> B
-    B -- "(3) Loads data" --> D
-
-
-    subgraph "Mashup Execution Environment"
-            B
-    end
-
-```
-
-
-![Beaten by the best](https://github.com/OscarValerock/OscarValerock/blob/main/src/content/blog/beaten-by-the-best-and-come-back-for-more/Beaten%20by%20the%20best.jpg?raw=true)
+![Beaten by the best](https://github.com/OscarValerock/OscarValerock/blob/main/public/blog-images/beaten-by-the-best-and-come-back-for-more-01.jpg?raw=true)
 
 It was extremely tough, and everyone else was faster, stronger, better; he felt and bit dust countless times, and did not achieve a single objective, the team leader thought he might be misplaced, that he didn´t belong there; he will come back for more.
 
