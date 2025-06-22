@@ -3,7 +3,7 @@ title: Data Exfiltration in Power Query - Understanding the Risk and Protections
 pubDate: 2025-04-21
 slug: data-exfiltration-in-power-query
 featured: false
-draft: false
+draft: true
 tags:
   - Power Query
   - Security
