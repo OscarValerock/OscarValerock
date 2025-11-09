@@ -57,7 +57,6 @@ Azure OpenAI • Azure AI Services • GPT Integration • ML Model Deployment
 ## 🌟 Featured Projects
 
 ### � [PowerQueryFunctions](https://github.com/OscarValerock/PowerQueryFunctions)
-**⭐ 39 stars | 🍴 13 forks**
 
 A Power BI Service-compatible custom functions library for Power Query (M). Streamline your data transformations with reusable, enterprise-ready functions.
 
@@ -66,7 +65,6 @@ A Power BI Service-compatible custom functions library for Power Query (M). Stre
 ---
 
 ### 🤖 [AI-Powered CV Analysis](https://github.com/OscarValerock/BIBB-PBI-CV-AI-Analysis)
-**⭐ 18 stars | � 6 forks**
 
 Automating recruitment with OpenAI and Power BI. This project demonstrates how to use AI to analyse CVs, match candidates to job requirements, and visualise insights in Power BI.
 
@@ -75,7 +73,6 @@ Automating recruitment with OpenAI and Power BI. This project demonstrates how t
 ---
 
 ### ⏱️ [Clockify Power BI Connector](https://github.com/OscarValerock/Clockify-PowerBI)
-**⭐ 19 stars | 🍴 6 forks**
 
 Custom Power BI connector for Clockify time tracking data. Seamlessly integrate your time tracking into your BI workflows.
 
@@ -84,7 +81,6 @@ Custom Power BI connector for Clockify time tracking data. Seamlessly integrate 
 ---
 
 ### � [Azure Key Vault Power BI Connector](https://github.com/OscarValerock/Power-BI-Azure-Key-Vault-Custom-connector)
-**⭐ 4 stars | 🍴 2 forks**
 
 Secure your Power BI reports by integrating Azure Key Vault for credential management.
 
