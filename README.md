@@ -20,6 +20,8 @@ With **15+ years of experience** bridging finance, technology, and analytics, I 
 I'm the founder of **[BIBB](https://bibb.pro)** — creator of the **#1 global Power BI Theme Generator** and UX-driven BI solutions. I'm passionate about making data beautiful, accessible, and actionable.
 
 ---
+![My GitHub Game](game.gif)
+---
 
 ## 💼 What I Do
 
