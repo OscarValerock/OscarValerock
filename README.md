@@ -1,11 +1,22 @@
+<img src="https://capsule-render.vercel.app/api?type=waving&color=CC0000&height=130&section=header&text=Oscar%20Mart%C3%ADnez&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=55" width="100%"/>
+
 <div align="center">
 
-# 👋 Hi, I'm Oscar Martínez
-
-### Data Platform Operational Lead | BI, AI & Automation Solutions Architect
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=CC0000&center=true&vCenter=true&random=false&width=600&lines=Power+BI+%26+Data+Expert;Founder+of+bibb.pro;Published+Author+(Packt%2C+2026);Best+Guacamole+in+Switzerland+🥑)](https://bibb.pro)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/oscarmartinezv)
-[![Website](https://img.shields.io/badge/Website-BIBB.pro-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://bibb.pro)
+[![Website](https://img.shields.io/badge/Website-BIBB.pro-CC0000?style=for-the-badge&logo=google-chrome&logoColor=white)](https://bibb.pro)
+[![Profile Views](https://komarev.com/ghpvc/?username=OscarValerock&color=CC0000&style=for-the-badge&label=PROFILE+VIEWS)](https://github.com/OscarValerock)
+
+</div>
+
+---
+
+<div align="center">
+
+| 82K+ | 600K+ | 17K+ | 📖 |
+|:---:|:---:|:---:|:---:|
+| **Theme Generator Users** | **Page Views** | **Newsletter Subscribers** | **Published Author** |
 
 </div>
 
@@ -13,54 +24,61 @@
 
 ## 🚀 About Me
 
-I make the **best Guacamole in Switzerland** 🥑... and also build enterprise-grade data solutions!
+With **15+ years** bridging finance, technology, and analytics, I build data tools people actually use.
 
-With **15+ years of experience** bridging finance, technology, and analytics, I currently lead **Data Platform Services at PwC Switzerland**, where I drive secure, scalable, and governance-aligned solutions using Microsoft Fabric, Power BI, and Azure.
-
-I'm the founder of **[BIBB](https://bibb.pro)** — creator of the **#1 global Power BI Theme Generator** and UX-driven BI solutions. I'm passionate about making data beautiful, accessible, and actionable.
+I'm the founder of **[bibb.pro](https://bibb.pro)** — home of the **#1 Power BI Theme Generator** on the web — and the author of **[Power Query for Excel and Business Users](https://www.amazon.com/dp/1807427730)** (Packt Publishing, 2026). Currently leading BI/Analytics at Wagner AG in Switzerland.
 
 ---
+
+<div align="center">
+
 ![My GitHub Game](game.gif)
+
+</div>
+
 ---
 
 ## 💼 What I Do
 
-- 🏗️ **Data Platform Engineering** — Designing and managing enterprise data platforms with Microsoft Fabric, Azure, and Databricks
-- 📊 **Business Intelligence** — Creating UX-driven dashboards and analytics solutions with Power BI
-- 🤖 **AI & Automation** — Building intelligent workflows with Power Platform, OpenAI, and Azure AI
-- 🔐 **Data Governance** — Implementing security-first, compliance-ready data architectures
+- 🎨 **Power BI & UX** — Dashboards people actually want to use, not just tolerate
+- 🏗️ **Data Platform Engineering** — Microsoft Fabric, Azure, and Databricks at enterprise scale
+- 📖 **Teaching & Content** — Newsletter, blog, and published books for business users
+- 🔐 **Data Governance** — Security-first, compliance-ready data architectures
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Data & Analytics**
-```
-Microsoft Fabric • Power BI • Databricks • Azure Synapse • Azure Data Factory
-```
+**Data & BI**
 
-**Development & Automation**
-```
-Power Query (M) • DAX • Python • SQL • PowerShell • JavaScript • TypeScript
-```
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![Microsoft Fabric](https://img.shields.io/badge/Microsoft_Fabric-742774?style=for-the-badge&logo=microsoft&logoColor=white)
+![DAX](https://img.shields.io/badge/DAX-CC0000?style=for-the-badge&logo=powerbi&logoColor=white)
+![Power Query](https://img.shields.io/badge/Power_Query-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
+![Azure Synapse](https://img.shields.io/badge/Azure_Synapse-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)
 
-**Cloud & DevOps**
-```
-Azure • Power Platform • Git • VS Code • JIRA • REST APIs
-```
+**Development**
 
-**AI & Machine Learning**
-```
-Azure OpenAI • Azure AI Services • GPT Integration • ML Model Deployment
-```
+<div>
+  <img src="https://skillicons.dev/icons?i=typescript,javascript,python,azure,postgres,supabase,astro,ps,git,vscode" />
+</div>
 
 ---
 
 ## 🌟 Featured Projects
 
-### � [PowerQueryFunctions](https://github.com/OscarValerock/PowerQueryFunctions)
+### 📖 [Power Query for Excel and Business Users](https://github.com/OscarValerock/Packt-PQ-for-business-users)
 
-A Power BI Service-compatible custom functions library for Power Query (M). Streamline your data transformations with reusable, enterprise-ready functions.
+Published by Packt Publishing (2026). A practical guide for business people to discover and unlock Power Query — the most powerful tool in Excel most people have never heard of.
+
+`#PowerQuery` `#Excel` `#PowerBI` `#PacktPublishing`
+
+---
+
+### ⚙️ [PowerQueryFunctions](https://github.com/OscarValerock/PowerQueryFunctions)
+
+A Power BI Service-compatible custom functions library for Power Query (M). Reusable, enterprise-ready functions to streamline your data transformations.
 
 `#PowerBI` `#PowerQuery` `#Excel` `#DataEngineering`
 
@@ -68,7 +86,7 @@ A Power BI Service-compatible custom functions library for Power Query (M). Stre
 
 ### 🤖 [AI-Powered CV Analysis](https://github.com/OscarValerock/BIBB-PBI-CV-AI-Analysis)
 
-Automating recruitment with OpenAI and Power BI. This project demonstrates how to use AI to analyse CVs, match candidates to job requirements, and visualise insights in Power BI.
+Automating recruitment with OpenAI and Power BI — AI-analysed CVs, candidate matching, and insight visualisation in Power BI.
 
 `#OpenAI` `#PowerBI` `#AI` `#Recruitment` `#Python`
 
@@ -76,13 +94,13 @@ Automating recruitment with OpenAI and Power BI. This project demonstrates how t
 
 ### ⏱️ [Clockify Power BI Connector](https://github.com/OscarValerock/Clockify-PowerBI)
 
-Custom Power BI connector for Clockify time tracking data. Seamlessly integrate your time tracking into your BI workflows.
+Custom Power BI connector for Clockify time tracking data. Seamlessly integrate time tracking into your BI workflows.
 
 `#PowerBI` `#CustomConnector` `#Clockify` `#TimeTracking`
 
 ---
 
-### � [Azure Key Vault Power BI Connector](https://github.com/OscarValerock/Power-BI-Azure-Key-Vault-Custom-connector)
+### 🔐 [Azure Key Vault Power BI Connector](https://github.com/OscarValerock/Power-BI-Azure-Key-Vault-Custom-connector)
 
 Secure your Power BI reports by integrating Azure Key Vault for credential management.
 
@@ -90,13 +108,11 @@ Secure your Power BI reports by integrating Azure Key Vault for credential manag
 
 ---
 
-## 📈 GitHub Stats
+## 🏆 GitHub Trophies
 
 <div align="center">
 
-![Oscar's GitHub stats](https://github-readme-stats.vercel.app/api?username=OscarValerock&show_icons=true&theme=default&hide_border=true&include_all_commits=true&count_private=false)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=OscarValerock&layout=compact&theme=default&hide_border=true)
+[![trophy](https://github-profile-trophy.vercel.app/?username=OscarValerock&theme=flat&no-frame=true&no-bg=true&margin-w=6&column=7)](https://github.com/OscarValerock)
 
 </div>
 
@@ -104,31 +120,26 @@ Secure your Power BI reports by integrating Azure Key Vault for credential manag
 
 ## 🎯 Current Focus
 
-- 🏗️ Leading **Microsoft Fabric implementation** at PwC Switzerland
-- 🔬 Exploring advanced AI integration patterns for enterprise BI
+- 📖 Post-publication phase for *Power Query for Excel and Business Users* — reviews, referrals, community outreach
+- 🎨 bibb.pro digital products — theme generator, file delivery, and new premium content
+- 🏗️ Building the BI/Analytics practice at Wagner AG
 
 ---
 
 ## 📜 Certifications
 
-- ✅ **Microsoft Fabric Analytics Engineer Associate**
-- ✅ **Power BI Data Analyst Associate**
-- ✅ **Azure AI Fundamentals**
-- ✅ **Azure Data Fundamentals**
-- ✅ **Databricks Fundamentals**
-- ✅ **ITIL 4 Foundation**
+![Fabric](https://img.shields.io/badge/Microsoft_Fabric_Analytics_Engineer_Associate-742774?style=flat-square&logo=microsoft&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI_Data_Analyst_Associate-F2C811?style=flat-square&logo=powerbi&logoColor=black)
+![Azure AI](https://img.shields.io/badge/Azure_AI_Fundamentals-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)
+![Azure Data](https://img.shields.io/badge/Azure_Data_Fundamentals-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)
+![Databricks](https://img.shields.io/badge/Databricks_Fundamentals-FF3621?style=flat-square&logo=databricks&logoColor=white)
+![ITIL](https://img.shields.io/badge/ITIL_4_Foundation-6B3FA0?style=flat-square&logoColor=white)
 
 ---
 
-## � Get In Touch
+## 📬 Get In Touch
 
-I'm always interested in collaborating on innovative data and AI projects, especially those involving:
-- 🚀 Enterprise data platform architecture
-- 🎨 UX-driven BI and analytics
-- 🤖 AI-powered automation
-- � Power BI advanced implementations
-
-Feel free to reach out via [LinkedIn](https://linkedin.com/in/oscarmartinezv)
+Always happy to connect on UX-driven BI, enterprise data platforms, AI automation, or data education. Reach out via [LinkedIn](https://linkedin.com/in/oscarmartinezv) or at [bibb.pro](https://bibb.pro).
 
 ---
 
@@ -136,7 +147,7 @@ Feel free to reach out via [LinkedIn](https://linkedin.com/in/oscarmartinezv)
 
 ### ⚡ Fun Fact
 
-I've worked across **3 continents** (Americas, Europe, Asia) and speak **3 languages** fluently (Spanish, English, German B2).
+I've worked across **3 continents** (Americas, Europe, Asia) and speak **3 languages** (Spanish, English, German B2).
 
 Also, seriously, my guacamole is legendary 🥑
 
@@ -147,3 +158,5 @@ Also, seriously, my guacamole is legendary 🥑
 — Head of Digitisation & Robotics, Swisscom
 
 </div>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=CC0000&height=100&section=footer" width="100%"/>
